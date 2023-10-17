@@ -9,12 +9,13 @@
     data() {
       return {
         projects: [],
+        // per tenere traccia della pagina in cui mi trovo
         pagination: {}
       };
     },
     methods: {
-      fetchData() {
-        axios.get("http://127.0.0.1:8000/api/projects")
+      fetchData(url) {
+        axios.get(url ?? "http://127.0.0.1:8000/api/projects")
         .then((response) => {
           // console.log(response);
           // prima prendo i dati per la lista dei projects tramite il data del data
@@ -24,6 +25,7 @@
           // restituire la paginazione non ho tutto l'array di dati
           delete response.data.data;
           //salvo i dati della paginazione (sempre postman)
+          // console.log(this.pagination)
           this.pagination = response.data
         });
       },
@@ -39,34 +41,34 @@
 
     <div class="container py-3">
       <div class="text-center">
-        <h1>Hello from my Vue front office</h1>
+        <h1>Hello! Welcome to My Portfolio</h1>
         <h3>Take a look at my projects</h3>
       </div>
       <div class="row">
-        <div class="my-3">
-          <div class="col d-flex justify-content-center my-3" v-for="project in projects">
-            <ProjectCard :project="project"></ProjectCard>
-          </div>
+        <div class="col d-flex justify-content-center my-3" v-for="project in projects">
+          <ProjectCard :project="project"></ProjectCard>
+        </div>
 
-          <!-- <div class="d-flex gap-3">
-            <span
-              v-for="tag in project.tags"
-              :key="tag.id"
-              class="badge"
-              :style="`background-color: rgb(${tag.color})`"
-              >{{ tag.name }}
-            </span>
-          </div> -->
+        <!-- <div class="d-flex gap-3">
+          <span
+            v-for="tag in project.tags"
+            :key="tag.id"
+            class="badge"
+            :style="`background-color: rgb(${tag.color})`"
+            >{{ tag.name }}
+          </span>
+        </div> -->
 
-          <!-- paginazione -->
-          <!-- <div>
-            <a
-              v-for="pageLink in pagination.links"
-              class="btn btn-link"
-              @click="fetchData(pageLink.url)"
-              v-html="pageLink.label"
-            ></a>
-          </div> -->
+        <!-- paginazione -->
+        <!-- devo aggiungere il fetchdata al click altrimenti mi restituisce l'api e ricarica la pagina-->
+        <!-- passo l'url nella function fetchdata e sostituisco :href="pageLink.url" con @click-->
+        <!-- aggiungo url anche ad axios così che se ho già l'url non ricarica la pagina -->
+        <div class="text-center">
+          <a class="btn btn-link"
+            v-for="pageLink in pagination.links"
+            @click="fetchData(pageLink.url)"
+            v-html="pageLink.label"
+          ></a>
         </div>
       </div>
     </div>

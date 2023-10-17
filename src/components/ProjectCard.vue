@@ -15,14 +15,17 @@ export default {
 
 <template>
 
-  <div class="card-box">
-    <div class="card h-100" style="width: 300px;">
-      <img :src="getImageUrl(project)" class="card-img-top object-fit-cover h-100" :alt="project.title">
-      <div class="card-body">
-        <h5 class="card-title text-center">{{ project.title }}</h5>
+  <a href="#" class="text-decoration-none">
+    <div class="card-box">
+      <div class="card h-100" style="width: 300px;">
+        <img :src="getImageUrl(project)" class="card-img-top object-fit-contain h-100" :alt="project.title">
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ project.title }}</h5>
+          <p class="card-text">{{ project.type_id }}</p>
+        </div>
       </div>
     </div>
-  </div>
+  </a>
 
 </template>
 
