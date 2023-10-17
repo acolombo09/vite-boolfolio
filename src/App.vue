@@ -40,7 +40,10 @@
 
 <template>
   <TheHeader></TheHeader>
+
   <main>
+    <!-- è come il segnaposto (yield) di blade per i contenuti -->
+    <router-view></router-view>
 
     <div class="container py-3">
       <div class="text-center">
@@ -50,16 +53,6 @@
         <div class="col d-flex justify-content-center my-3" v-for="project in projects">
           <ProjectCard :project="project"></ProjectCard>
         </div>
-
-        <!-- <div class="d-flex gap-3">
-          <span
-            v-for="tag in project.tags"
-            :key="tag.id"
-            class="badge"
-            :style="`background-color: rgb(${tag.color})`"
-            >{{ tag.name }}
-          </span>
-        </div> -->
 
         <!-- paginazione -->
         <!-- devo aggiungere il fetchdata al click altrimenti mi restituisce l'api e ricarica la pagina-->
@@ -76,6 +69,12 @@
     </div>
 
   </main>
+
+  <footer class="bg-dark py-5 border-top">
+    <div class="container">
+      <h3>Footer</h3>
+    </div>
+  </footer>
 </template>
 
 <style lang="scss"></style>

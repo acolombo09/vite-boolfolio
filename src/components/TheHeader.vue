@@ -1,6 +1,4 @@
 <script>
-  import axios from 'axios';
-  
 
   export default {
     // props: {
@@ -21,19 +19,18 @@
 </script>
 
 <template>
-  <header class="py-3">
+  <header class="py-3 border-bottom">
     <nav class="container-fluid">
       <div class="d-flex align-items-center justify-content-between">
         <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none">
           <h3 class="text-success fw-bold">BOOLFOLIO</h3>
         </a>
 
-        <ul class="nav col-12 col-lg-auto mb-0 align-items-center">
-          <li><a href="#" class="nav-link px-2 link-light"><h5>Home</h5></a></li>
-          <li><a href="#" class="nav-link px-2 link-light"><h5>Projects</h5></a></li>
-          <li><a href="#" class="nav-link px-2 link-light"><h5>Blog</h5></a></li>
-          <li><a href="#" class="nav-link px-2 link-light"><h5>Newsletter</h5></a></li>
-          <li><a href="#" class="nav-link px-2 link-light"><h5>Contact Me</h5></a></li>
+        <ul class="nav col-12 col-lg-auto mb-0 align-items-center list-unstyled gap-3">
+          <li class="px-2"><router-link :to="{name: 'home'}">Home</router-link></li>
+          <li class="px-2"><router-link :to="{name: 'projects'}">Projects</router-link></li>
+          <li class="px-2"><router-link :to="{name: 'blog'}">Blog</router-link></li>
+          <li class="px-2"><router-link :to="{name: 'contacts'}">Contacts</router-link></li>
         </ul>
         
         <div class="col-12 col-lg-auto">
