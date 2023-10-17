@@ -1,6 +1,11 @@
 <script>
   import axios from 'axios';
+  import ProjectCard from './components/ProjectCard.vue';
+
   export default {
+    components: {
+      ProjectCard
+    },
     data() {
       return {
         projects: [],
@@ -20,8 +25,8 @@
           delete response.data.data;
           //salvo i dati della paginazione (sempre postman)
           this.pagination = response.data
-        })
-      }
+        });
+      },
     },
     mounted() {
       this.fetchData();
@@ -31,11 +36,42 @@
 
 <template>
   <main>
-    <div class="container">
-      <h1>Hello from my Vue front office</h1>
-      <p>Take a look at my projects</p>
+
+    <div class="container py-3">
+      <div class="text-center">
+        <h1>Hello from my Vue front office</h1>
+        <h3>Take a look at my projects</h3>
+      </div>
+      <div class="row">
+        <div class="my-3">
+          <div class="col d-flex justify-content-center my-3" v-for="project in projects">
+            <ProjectCard :project="project"></ProjectCard>
+          </div>
+
+          <!-- <div class="d-flex gap-3">
+            <span
+              v-for="tag in project.tags"
+              :key="tag.id"
+              class="badge"
+              :style="`background-color: rgb(${tag.color})`"
+              >{{ tag.name }}
+            </span>
+          </div> -->
+
+          <!-- paginazione -->
+          <!-- <div>
+            <a
+              v-for="pageLink in pagination.links"
+              class="btn btn-link"
+              @click="fetchData(pageLink.url)"
+              v-html="pageLink.label"
+            ></a>
+          </div> -->
+        </div>
+      </div>
     </div>
+
   </main>
-  
 </template>
 
+<style lang="scss"></style>
