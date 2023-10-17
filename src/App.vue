@@ -1,10 +1,12 @@
 <script>
   import axios from 'axios';
   import ProjectCard from './components/ProjectCard.vue';
+  import TheHeader from './components/TheHeader.vue';
 
   export default {
     components: {
-      ProjectCard
+      ProjectCard,
+      TheHeader
     },
     data() {
       return {
@@ -37,14 +39,14 @@
 </script>
 
 <template>
+  <TheHeader></TheHeader>
   <main>
 
     <div class="container py-3">
       <div class="text-center">
         <h1>Hello! Welcome to My Portfolio</h1>
-        <h3>Take a look at my projects</h3>
       </div>
-      <div class="row">
+      <div class="row my-3">
         <div class="col d-flex justify-content-center my-3" v-for="project in projects">
           <ProjectCard :project="project"></ProjectCard>
         </div>
