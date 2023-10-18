@@ -46,9 +46,6 @@
     <router-view></router-view>
 
     <div class="container py-3">
-      <div class="text-center">
-        <h1>Hello! Welcome to My Portfolio</h1>
-      </div>
       <div class="row my-3">
         <div class="col d-flex justify-content-center my-3" v-for="project in projects">
           <ProjectCard :project="project"></ProjectCard>

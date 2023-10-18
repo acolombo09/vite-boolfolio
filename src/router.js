@@ -6,6 +6,8 @@ import ProjectsPage from "./pages/Projects.vue";
 import BlogPage from "./pages/Blog.vue";
 import ContactsPage from "./pages/Contacts.vue";
 // import ProjectsShowPage from "./pages/projects/Show.vue";
+// import componente jolly per url sbagliati o sconosciuti richiesti dall'utente
+import NotFoundPage from "./pages/NotFound.vue";
 
 
 // definiamo le rotte
@@ -29,6 +31,12 @@ const routes = [
     path: "/contacts",
     name: "contacts",
     component: ContactsPage,
+  },
+
+  {
+    path: "/:pathMatch(.*)*",
+    name: "not-found",
+    component: NotFoundPage,
   },
 
   // {
