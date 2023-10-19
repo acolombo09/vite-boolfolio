@@ -1,11 +1,9 @@
 <script>
   import axios from 'axios';
-  import ProjectCard from './components/ProjectCard.vue';
   import TheHeader from './components/TheHeader.vue';
 
   export default {
     components: {
-      ProjectCard,
       TheHeader
     },
     data() {
@@ -44,27 +42,7 @@
   <main>
     <!-- è come il segnaposto (yield) di blade per i contenuti -->
     <router-view></router-view>
-
-    <div class="container py-3">
-      <div class="row my-3">
-        <div class="col d-flex justify-content-center my-3" v-for="project in projects">
-          <ProjectCard :project="project"></ProjectCard>
-        </div>
-
-        <!-- paginazione -->
-        <!-- devo aggiungere il fetchdata al click altrimenti mi restituisce l'api e ricarica la pagina-->
-        <!-- passo l'url nella function fetchdata e sostituisco :href="pageLink.url" con @click-->
-        <!-- aggiungo url anche ad axios così che se ho già l'url non ricarica la pagina -->
-        <div class="text-center">
-          <a class="btn btn-link"
-            v-for="pageLink in pagination.links"
-            @click="fetchData(pageLink.url)"
-            v-html="pageLink.label"
-          ></a>
-        </div>
-      </div>
-    </div>
-
+    <!-- sposto tutto l'html in pagina projects che sarà la mia index -->
   </main>
 
   <footer class="bg-dark py-5 border-top">

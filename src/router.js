@@ -5,7 +5,7 @@ import HomePage from "./pages/Home.vue";
 import ProjectsPage from "./pages/Projects.vue";
 import BlogPage from "./pages/Blog.vue";
 import ContactsPage from "./pages/Contacts.vue";
-// import ProjectsShowPage from "./pages/projects/Show.vue";
+import ProjectsShowPage from "./pages/projects/Show.vue";
 // import componente jolly per url sbagliati o sconosciuti richiesti dall'utente
 import NotFoundPage from "./pages/NotFound.vue";
 
@@ -39,12 +39,12 @@ const routes = [
     component: NotFoundPage,
   },
 
-  // {
-  //   // Show di un singolo post
-  //   path: "/projects/:id",
-  //   name: "projects.show",
-  //   component: ProjectsShowPage
-  // }
+  {
+    //Show di un singolo post
+    path: "/projects/:slug",
+    name: "projects.show",
+    component: ProjectsShowPage,
+  }
 ]
 
 // creazione istanza di Router

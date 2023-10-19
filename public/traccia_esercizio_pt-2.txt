@@ -1,0 +1,23 @@
+Ciao ragazzi,
+continuiamo a lavorare sul codice dei giorni scorsi.
+
+Aggiungiamo una nuova rotta API che resituirà i dettagli 
+del singolo progetto richiesto.
+
+Lato front-office installiamo vue router e configuriamolo 
+come da notion (https://www.notion.so/florian-boolean/
+Vue-Router-bd4487510ac042fb9cb03cf998f2960f?pvs=4)
+
+Creiamo una rotta home, una progetti (index) ed una 
+progetti/idprogetto (show)
+
+Per la pagina progetti.index mostriamo tutta la lista 
+dei progetti spostando il codice scritto in app.vue dentro 
+la pagina dedicata.
+
+Per la pagina progetti.show mostriamo i dettagli del singolo 
+progetto facendo la chiamata all’api show del backend.
+
+BONUS
+Creiamo un componente per la navbar principale e 
+tramite un array, stampiamo dinamicamente i link del nostro sito.

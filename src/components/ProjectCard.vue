@@ -23,6 +23,9 @@ export default {
           <h5 class="card-title">{{ project.title }}</h5>
           <p class="card-text">{{ project.type_id }}</p>
         </div>
+        <div class="card-footer">
+          <router-link :to="{name: 'projects.show', params: {slug: project.slug}}">Vedi Dettagli</router-link>
+        </div>
       </div>
     </div>
   </a>
